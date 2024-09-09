@@ -6,7 +6,7 @@ En esta primera práctica vamos a tomar contacto con el entorno que usaremos par
 
  Se trata de una práctica guiada en cuyo enunciado vamos detallando, uno a uno, los pasos a seguir. La mayoría de los pasos que se describen serán necesarios también para el resto de prácticas, pues se enseña tanto la construcción de la estructura de directorios que utilizaremos como la creación de los proyectos de Eclipse y el mecanismo de entrega.
 
-En este curso utilizaremos [*Java21*](https://www.oracle.com/java/technologies/downloads/#java21) y [*Eclipse 24.03*](https://www.eclipse.org/downloads/packages/release/2024-03/) ya que éstas son las versiones de las herramientas que están instaladas en los laboratorios de la Facultad.
+En este curso utilizaremos [*Java21*](https://www.oracle.com/java/technologies/downloads/#java21) y [*Eclipse 24.03*](https://www.eclipse.org/downloads/packages/release/2024-03/) ya que éstas son las versiones de las herramientas que están instaladas en los laboratorios de la Facultad. No obstante, es mucho más sencillo utilizar [*Eclipse 24.06*](https://www.eclipse.org/downloads/packages/release/2024-06/) que viene por defecto con un *Java21* integrado y cuyas diferencias no son significativas.
 
 <!-- Eclipse 2023-03 ya viene con un Java 17 integrado, por lo que si lo instalas en tu equipo y vas a usarlo para realizar las prácticas, no necesitas instalarte nada más. 
 > 
@@ -119,7 +119,7 @@ Crear un nuevo workspace. Si ya está abierto Eclipse, cambiar al workspace dese
 
 Crear un proyecto: *File* -> *New* -> *Java Project*. Recuerda que cada práctica será un proyecto nuevo. Asegúrate de que el entorno de ejecución seleccionado es JavaSE-21. Por otro lado, en la última sección *Module*, **desmarca la opción *Create module-info.java file*** en caso de que aparezca marcada. 
 
-![image](img/23_24_eclipse_circle.png)
+![image](img/24_25_eclipse_circle.png)
 
 ### Paso 4:
 
