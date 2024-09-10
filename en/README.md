@@ -1,16 +1,18 @@
 # Assignment 0: A First Look at Java
 
-## Submission date: September 18th 2023
+## Submission date: September 16th 2024, 09:00 hrs
 
 In this first assignment, we have our first contact with the development environment that we will use to carry out all the assignments of the *Programming Technology I* course. It takes the form of a step-by-step guide. Most of the steps described will also be needed in the following assignments since they show how to organise the different files, that is, the folder structure to be used, how to create Eclipse projects and how to submit the assignments.
 
-Throughout the course, we will use [*Java17*](https://www.oracle.com/java/technologies/downloads/#java17) and [*Eclipse 23.03*](https://www.eclipse.org/downloads/packages/release/2023-03/) since these are the versions of these software tools that are installed in the FDI labs.
+Throughout the course, we will use [*Java21*](https://www.oracle.com/java/technologies/downloads/#java21) and [*Eclipse 24.03*](https://www.eclipse.org/downloads/packages/release/2024-03/) since these are the versions of these software tools that are installed in the FDI labs. 
 
-In fact, Eclipse 2023-03 comes with an integrated JRE 17. Another installation is not required.
+If you wish to install Eclipse on your own computer, it is actually easier to use [*Eclipse 24.06*](https://www.eclipse.org/downloads/packages/release/2024-06/) since it comes with *Java21* integrated by default and the differences between versions 24.03 and 24.06 are not significant. You may also choose to use a different IDE on your own computer. However, in all cases, whatever IDE and version you use to carry out your assignments, before you submit each of them, you must check that they work correctly on the configuration installed in the labs.
 
-<!-- but, at least to carry out the present assignment, you will also need to install Java 17 separately. -->
+<!-- In fact, Eclipse 2023-03 comes with an integrated JRE 17. Another installation is not required.
 
-With a little care, you can use later versions if you wish but, for the lab correction and for the exam, **you must make sure that your code also compiles and executes correctly using official versions**.
+but, at least to carry out the present assignment, you will also need to install Java 17 separately.
+
+With a little care, you can use later versions if you wish but, for the lab correction and for the exam, **you must make sure that your code also compiles and executes correctly using official versions**. -->
 
 ## Folder structure
 
@@ -81,13 +83,13 @@ java -version
 
 as shown in the following figure:
 
-![image](../img/im7_j17.png)
+![image](../img/23_24_im7_j17.png)
 
 ### Step 4:
 
 Executing our application involves executing the Java virtual machine (JVM) and telling it to use the `main` method of the bytecode contained in the file `HelloWorld.class` as the entry point to the application. We do so by executing the command `java HelloWorld`[^2]. As was the case for the command to compile the java source code, the JVM executable, `java.exe`, must be in one of the folders of the `PATH` environment variable or the OS will not be able to find it and execute it. In the labs this executable can be found in the same folder as the compiler executable (the `bin` folder of the JDK), which we have already added to the `PATH` variable.
 
-![image](../img/im777.png)
+![image](../img/23_24_im777.png)
 
 ## Part II: "Hello World" in Eclipse
 
@@ -99,9 +101,11 @@ Before using the Eclipse IDE (Integrated Development Environment), we need to le
 
 In the following, we will assume that the workspace is located in the folder `c:\hlocal\TP`[^3]. A *project* is a new folder that is created in the workspace. You should create a new project for each assignment (in spite of the fact that the assignments are cumulative). In each project, we will create the following folders:
 
-- `src`: The folder containing the source code, i.e. files with the extension `.java`. **This is the folder that must be saved (on your Z drive, on GDrive, on OneDrive, etc.) at the end of each lab session since the contents of the `hlocal` folder are deleted when the user logs out of a session**.
+- `src`: The folder containing the source code, i.e. files with the extension `.java`. **This is the folder that must be saved (GDrive, OneDrive, etc.) at the end of each lab session since the contents of the `hlocal` folder on the lab computers are deleted when the user logs out of a session**.
 
 - `bin`: The folder containing the *bytecode* resulting from the compilation of the source code and interpretable by the JVM, i.e. files with the extension `.class`. **It is not necessary to save the contents of this folder between lab sessions since they can be generated from the source code**. By default, this folder is hidden in Eclipse but you can check its content via the file manager of your system.
+
+> Though it is a little more advanced, you may wish to use a version-control system (VCS) such as Git to store your code, thereby facilitating the coordination with your lab partner. If you use a VCS via a web interface such as [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/) o [BitBucket](https://bitbucket.org/) **remember to make your repository private** in order to ensure that no-one can copy your code so that you don't get embroiled in a plagiary incident: in public repositories the code is visible to everyone. **Do not create your repository as a fork of the repository in which we provided the problem statement and base code of the assigments**.
 
 We now translate the previous example to the Eclipse platform.
 
@@ -118,7 +122,7 @@ Create a new workspace. If Eclipse is already open, change the desired workspace
 
 ### Step 3:
 
-Create a project: *File* -> *New* -> *Java Project*. Recall that you should create a new project for each assignment. Note that in the last section of the *New Java Project* window called *Module* **deselect the *Create module-info.java file*** if it is selected.
+Create a project: *File* -> *New* -> *Java Project*. Recall that you should create a new project for each assignment. In the Eclipse version that is installed in the lab, or any other Eclipse version in which Java 21 is not the default version of Java, in the appropriate part of the *New Java Project* window you must explicitly **select JavaSE-21 for the execution environment**. Lastly, in the part of the *New Java Project* window labelled *Module* **deselect the *Create module-info.java file*** if it is selected. When you have done this, click on *Next*; if, instead, you click on *Finish* the compiled files will be mixed in with the source-code files and when you submit this mess, your lecturer may penalise you by deducting marks (since this makes your submissions hundreds of times bigger and also makes it more difficult to manipulate during correction).
 
 ![image](../img/23_24_eclipse_circle.png)
 
@@ -128,6 +132,7 @@ On creating a project you must indicate the location of the folders where you wi
 
 ![image](../img/23_24_im6.png)
 
+<!--
 ### Step 5:
 
 Strictly speaking, this step is not required when working in English since, in that case, there is no need to use any non-ASCII characters (note that the comments in your code should also be in English). However, since it is information of interest for using Eclipse in a non-English speaking country, if you want to use non-ASCII characters in your comments, it is advisable to configure the project to use the *UTF-8* character encoding. To do so, select the project, click on it with the right mouse button and select the *Properties* option. Then choose the *Resource* menu and modify *Text File Encoding*, selecting *Other* and indicating *UTF-8*.
@@ -137,27 +142,28 @@ Strictly speaking, this step is not required when working in English since, in t
 Instead of setting the character encoding for each project, you can also set it for all the projects in a workspace. To do so, select *Window* -> *Preferences* and choose the *General* -> *Workspace* menu. Then modify the *Text File Encoding*, selecting *Other* and indicating *UTF-8*.
 
 ![image](../img/im666.png)
+-->
 
-### Step 6:
+### Step 5:
 
 Having configured Eclipse and created a new Java project, we now write our first program, creating a class called `HelloWorld.java` by selecting 
 *new Class* in the *File* menu. As well as providing the class name, you can also ask Eclipse to create the stub of the `main` method.
 
 ![image](../img/23_24_im8.png)
 
-### Step 7:
+### Step 6:
 
 We see that Eclipse has created the file `HelloWorld.java` in the appropriate folder `C:\hlocal\TP\Pr0\src\HelloWorld.java`.
 
 ![image](../img/23_24_im88.png)
 
-### Step 8:
+### Step 7:
 
 Write the code of the "HelloWorld" class.
 
 ![image](../img/23_24_im9.png)
 
-### Step 9:
+### Step 8:
 
 Eclipse offers different ways to execute the application, one of them being:
 
@@ -171,7 +177,7 @@ Another alternative is to click on the green "Run" icon after selecting the `Hel
 
 ![image](../img/23_24_im99.png)
 
-### Step 10:
+### Step 9:
 
 Eclipse has now compiled our source code file and the result of this compilation is a file called `HelloWorld.class` in the `C:\hlocal\TP\Pr0\bin\` folder.
 
@@ -239,9 +245,9 @@ Take into account that, as indicated in the documentation of the class:
     * If 0 <= k <= n, apply the formula.
 
 **Observations**:
-It is better to save results of the factorial function as a type `long`. <!-- It is better that the local variables used to save results of the factorial function be of type `long`.-->
+It is better to use variables of type long for the factorial function. <!-- It is better that the local variables used to save results of the factorial function be of type `long`.-->
 
-Once these methods are implemented, we can test them with the following code in the `main` method (commenting o removing the last line):
+Once these methods are implemented, we can test them with the following code in the `main` method (commenting or removing the current content):
 
 ``` Java
 for (int i = 0; i < 6; ++i) {
@@ -268,11 +274,11 @@ the output of which should be as follows:
 
 ## Part V: simple test with program tracing
 
-Next, we perform a simple test of the previous program. Although, given the simplicity of this assignment, in this case it is obvious whether the output is correct or not, learning this process will be useful to work with the tests of future assignments.
+Next, we perform a simple test of the previous program. Although in this case, given the simplicity of this assignment, it is obvious whether the output is correct or not, learning this process will be useful for testing future assignments.
 
 To carry out this test we are going to configure Eclipse to write the output to a file, instead of displaying it by console.
 
-Firstly we will do is create a file[^4] called 'combinatorial_expected_output.txt' by right-clicking on the package 'tp.pr0' *New* -> *File*. In this file, we will add the expected output:
+First, we create a file[^4] called 'combinatorial_expected_output.txt' by right-clicking on the package 'tp.pr0' *New* -> *File*. In this file, we will add the expected output:
 
 ``` Java
 1 
@@ -284,10 +290,9 @@ Firstly we will do is create a file[^4] called 'combinatorial_expected_output.tx
  
 ```
 
-Once the file with the expected output is created, we will write our program output into a file. To do this, you must change some parameters of the execution management: Right Click on 'Pr0Main.java' *Run as* -> *Run Configurations...*. Here you will find a tab called 'Commons' that you will have to configure as shown in the following figure:
+Once the file with the expected output is created, we will write our program output into a file. To do this, you must change some parameters of the execution management: Right Click on 'Pr0Main.java' *Run as* -> *Run Configurations...*. Here you will find a tab called 'Commons' that you should configure as shown in the following figure:
 
 ![Commons Configuration](../img/23_24_testing01.png)
-
 
 There are many free programs to visually compare files, for example Eclipse already has integrated a tool to compare files that you can launch by selecting two files, right-clicking and in the pop-up menu select 'Compare With > Each other'.
 
@@ -304,7 +309,7 @@ If the output does not match, Eclipse will highlight it as follows (in this exam
 
 ## Part VI: submission of the assignment
 
-To submit the finished assignment, we use the Campus Virtual submission mechanism. The submission deadline for the assignment appears in the problem statement. Before submitting, the solution to the assignment should be compressed in a `.zip` archive called `assignment0.zip`. The contents of the zip archive should be as follows:
+To submit the finished assignment, we use the Campus Virtual submission mechanism. The submission deadline for the assignment appears in the problem statement. Before submitting, the solution to the assignment should be compressed in a `.zip` archive (**not** a .rar archive or a .7z archive) called `assignment0.zip`. The contents of the zip archive should be as follows:
 
 - A text file `students.txt` containing the name of each of the members of the lab group.
 
@@ -324,9 +329,9 @@ to include in it.
 
 [^3]: It is inadvisable to use a USB memory stick as a workspace since the lifetime of such memory can be drastically reduced by the large quantity of operations which will be performed on it. <!-- It is also inadvisable to use a mounted remote filesystem as a workspace due to the slower speed and to the large quantity of intermediate files that can be generated. However, between lab sessions, you may wish to store source code files on the 100MB of remote filesystem space available to each student (which is visible from any lab computer both in Windows and in Linux: just click on the icon labelled "MontarZ" to use it).-->
 
-[^4]: In further assigments, wou will be provided with test files both the expected input and output.
+[^4]: In future assigments, wou will be provided with test files for both the input and the expected output.
 
-
+<!--
 ## Appendix 1: Markdown display tool
 
 To finish configuring Eclipse, we are going to install (or check that it is already installed) a Markdown-display tool that will be useful later on. Markdown is a simple, lightweight, markup language for creating formatted text whose source code is comfortably human-readable. To install the display tool in Eclipse:
@@ -339,14 +344,12 @@ In the search textbox write "*wikitext*":
 
 ![image](../img/MD02.png)
 
-Check that you have the "*Mylyn WikiText 3.0*" plugin installed. Both in FDI labs and on your own computer installation, it will appear by default as long as you are using the recommended version of Eclipse.
+Check that you have the "*Mylyn WikiText 3.0*" plugin installed. Both in FDI labs and on your own computer installation, it will appear by default as long as you are using the recommended version of Eclipse. -->
 
 
-## Appendix 2: Configuring Eclipse to use a different JRE
+## Appendix 1: Configuring Eclipse to use a different JRE
 
-As stated at the beginning of these instructions, the version of Eclipse that we are using comes with a Java 17 installation. If you prefer, you can use a different version of Java (for instance, in your laptop) by modifying your *workspace* preferences as follows:
-
-Select *Window* -> *Preferences*, type "JRE" in the search textbox, navigate to the option *Java* -> *Installed JREs* and click on the *Add...* button.
+If your computer does not have Java 21 installed, you will have to install it yourself (https://www.oracle.com/java/technologies/downloads/#java21) and then modify your workspace preferences. To do so, select *Window* -> *Preferences*, then type "JRE" in the search textbox or navigate to the option *Java* -> *Installed JREs* and click on the *Add...* button.
 
 ![image](../img/JREworkspace01.png)
 
@@ -354,7 +357,7 @@ In the next window, check that the option "Standard VM" is selected and the clic
 
 ![image](../img/JREworkspace02.png)
 
-In the next window, click on the *Directory...* button and select the folder where you have installed the Java installation that you wish to use.
+In the next window, click on the *Directory...* button and select the folder where you have installed the version of Java that you wish to use.
 
 ![image](../img/JREworkspace03.png)
 
