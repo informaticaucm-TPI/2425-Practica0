@@ -72,7 +72,7 @@ If there are no compilation errors, a file called `HelloWorld.class` containing 
 However, if the path to the compiler executable (`javac.exe`) is not one of the paths contained in the `PATH` environment variable, the system will not find this executable and, consequently, will not be able to execute the `javac` command. To this end, we add the address of the `bin` folder of the JDK, which contains the executable file for this command and others, to the list of paths contained in the `PATH` variable. In the labs the required path is `C:\JDK\jdk17-x86_64\bin` which we can add to the `PATH` variable from the Windows command line as follows:
 
 ```
-set PATH=C:\JDK\jdk17-x86_64\bin;.;%PATH%
+set PATH=C:\JDK\jdk21-x86_64\bin;.;%PATH%
 ```
 
 We can now check that we are using the correct version of the JDK by executing the following command:
